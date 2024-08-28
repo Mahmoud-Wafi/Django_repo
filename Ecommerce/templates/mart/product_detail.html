@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Product Details</h1>
+        <p><strong>Product ID:</strong> {{ product.productID }}</p>
+        <p><strong>Product Name:</strong> {{ product.productName }}</p>
+        <p><strong>Price:</strong> {{ product.price }}</p>
+        <p><strong>Stock:</strong> {{ product.stock }}</p>
+        <a href="{% url 'display_form' %}">Back to Products</a>
+    </div>
+</body>
+</html>
+{% endblock %}
