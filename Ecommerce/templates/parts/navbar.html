@@ -1,7 +1,11 @@
 {% load static %}
 <link rel="stylesheet" href="{% static 'css/style.css' %}">
 <div class="navbar">
-    <a href="#">Home</a>
-    <a href="#">About Us</a>
-    <a href="#">Contact</a>
+    <a href="{% url 'products' %}">products</a>
+    <a href="{% url 'display_form' %}">mart</a>
+     {% block header %}
+      <div class="cart-info">
+          <a href="{% url 'view_cart' %}">MyCart ({{ request.session.cart|length }})</a>
+      </div>
+  {% endblock %}
   </div>

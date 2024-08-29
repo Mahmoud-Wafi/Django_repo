@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+{% extends "base.html" %}
 {% load static %}
 {% block content %}
 <!DOCTYPE html>
@@ -6,17 +6,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Product Details</title>
+    <title>{{ product.name }}</title>
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
-    <div class="container">
-        <h1>Product Details</h1>
-        <p><strong>Product ID:</strong> {{ product.productID }}</p>
-        <p><strong>Product Name:</strong> {{ product.productName }}</p>
-        <p><strong>Price:</strong> {{ product.price }}</p>
-        <p><strong>Stock:</strong> {{ product.stock }}</p>
-        <a href="{% url 'display_form' %}">Back to Products</a>
+    <div class="container1">
+        <h1>{{ product.name }}</h1>
+        <img src="{{ product.image.url }}" alt="{{ product.name }}" class="product_details-image">
+        <p class="product-price">${{ product.price }}</p>
+        <p class="product-description">{{ product.description }}</p>
+        <a href="{% url 'cart' product.id %}" class="btn-details">Add to Cart</a>
+        <a href="{% url 'display_form' %}" class="btn-back">Back to List</a>
     </div>
 </body>
 </html>
