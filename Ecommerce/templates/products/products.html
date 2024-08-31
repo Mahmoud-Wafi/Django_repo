@@ -1,5 +1,26 @@
-{% extends 'base.html' %}
-{%  block content %}
-<h1>Products</h1>
-{% endblock  %}
 
+{% extends "base.html" %} 
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <h1>Product List</h1>
+    <ul>
+        {% for product in products %}
+            <li>
+                <strong>Name:</strong> {{ product.name }}<br>
+                <strong>Price:</strong> ${{ product.price }}<br>
+                <strong>Description:</strong> {{ product.description }}<br>
+                <strong>Image:</strong> <img src="{{ product.image.url }}" alt="{{ product.name }}" /><br>
+            </li>
+        {% empty %}
+            <li>No products available.</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
+{% endblock  %}
